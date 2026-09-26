@@ -93,10 +93,15 @@ class AreaController extends Controller
     private function geocode(string $query): array
     {
         try {
+            $q = $query;
+            if (!preg_match('/(christchurch|canterbury|new zealand|nz)/i', $query)) {
+                $q = $query . ', Christchurch, New Zealand';
+            }
+
             $response = Http::withHeaders([
                 'User-Agent' => 'MobilRiccartonAdmin/1.0',
             ])->get('https://nominatim.openstreetmap.org/search', [
-                'q' => $query,
+                'q' => $q,
                 'format' => 'json',
                 'limit' => 1,
                 'addressdetails' => 1,

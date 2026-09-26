@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 // Public routes
 Route::get('/blogs', [PublicBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [PublicBlogController::class, 'show']);
+Route::get('/areas', [AreaController::class, 'index']);
 
 // Admin routes
 Route::prefix('admin')->group(function () {

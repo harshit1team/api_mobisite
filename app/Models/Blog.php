@@ -19,6 +19,9 @@ class Blog extends Model
         'featured_image',
         'author_id',
         'author_name',
+        'seo_title',
+        'seo_description',
+        'focus_keyword',
         'status',
         'published_at',
     ];

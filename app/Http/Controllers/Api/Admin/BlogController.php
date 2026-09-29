@@ -189,7 +189,8 @@ class BlogController extends Controller
         ]);
 
         $path = $request->file('image')->store('blogs', 'public');
-        $url = asset('storage/' . $path);
+        $baseUrl = config('app.url') ? rtrim(config('app.url'), '/') : $request->getSchemeAndHttpHost();
+        $url = $baseUrl . '/storage/' . $path;
 
         return response()->json([
             'success' => true,

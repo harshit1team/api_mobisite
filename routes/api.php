@@ -7,7 +7,7 @@ use App\Http\Controllers\Api\BlogController as PublicBlogController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Public routes
+// Public routes ok
 Route::get('/blogs', [PublicBlogController::class, 'index']);
 Route::get('/blogs/{slug}', [PublicBlogController::class, 'show']);
 Route::get('/areas', [AreaController::class, 'index']);

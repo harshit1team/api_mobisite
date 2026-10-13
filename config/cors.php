@@ -23,18 +23,21 @@ return [
         static fn (string $origin): string => rtrim(trim($origin), '/'),
         explode(',', (string) env(
             'CORS_ALLOWED_ORIGINS',
-            'http://192.168.1.61:3000,http://192.168.1.61:8081,http://localhost:3000,http://127.0.0.1:3000'
+            'https://mobilriccarton.com,https://www.mobilriccarton.com,https://api-v1.mb.softsove.life,http://localhost:3000,http://127.0.0.1:3000,http://192.168.1.61:3000,http://192.168.1.25:3000'
         ))
     ))),
 
-    'allowed_origins_patterns' => [],
+    'allowed_origins_patterns' => [
+        '#^https?://(www\.)?mobilriccarton\.com$#',
+        '#^https?://api-v1\.mb\.softsove\.life$#',
+    ],
 
     'allowed_headers' => ['*'],
 
     'exposed_headers' => [],
 
-    'max_age' => 0,
+    'max_age' => 86400,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];
